@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create Biodata{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-center">Create/Edit Your Biodata</h2>
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Personal Information</h4>
+                    {{ form.photo|as_crispy_field }}
+                    {{ form.gender|as_crispy_field }}
+                    {{ form.date_of_birth|as_crispy_field }}
+                    {{ form.height|as_crispy_field }}
+                    {{ form.marital_status|as_crispy_field }}
+                    {{ form.religion|as_crispy_field }}
+                    {{ form.caste|as_crispy_field }}
+                    {{ form.mother_tongue|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    <h4>Education and Career</h4>
+                    {{ form.education|as_crispy_field }}
+                    {{ form.occupation|as_crispy_field }}
+                    {{ form.annual_income|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>Family Information</h4>
+                    {{ form.father_name|as_crispy_field }}
+                    {{ form.father_occupation|as_crispy_field }}
+                    {{ form.mother_name|as_crispy_field }}
+                    {{ form.mother_occupation|as_crispy_field }}
+                    {{ form.siblings|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    <h4>Contact Information</h4>
+                    {{ form.address|as_crispy_field }}
+                    {{ form.city|as_crispy_field }}
+                    {{ form.state|as_crispy_field }}
+                    {{ form.phone|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h4>Additional Information</h4>
+                    {{ form.about_me|as_crispy_field }}
+                    {{ form.hobbies|as_crispy_field }}
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Save Biodata</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
